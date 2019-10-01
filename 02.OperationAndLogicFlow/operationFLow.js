@@ -92,3 +92,6 @@ function getColorfulNumbers(input){
     return html;
 }
 console.log(getColorfulNumbers(10));
+
+//9.	Chess Board
+
