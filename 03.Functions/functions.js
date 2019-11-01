@@ -12,7 +12,7 @@ function sumOfTwoNumbers(firstNumber, secondNumber){
 
     // finalSum(firstNumber,secondNumber); Ако я декларирам тук дава Runtime excepsion (can't be 'Hoisted')
 
-    let finalSum = function (a, b){ //<- анонимна функция, изполва се когато на променлива извикаме функция
+    let finalSum = function (a, b){ //<- анонимна функция(без име), изполва се когато на променлива 
         return a+b;
     }
     console.log(finalSum(firstNumber,secondNumber)); //<- Слагам параметри на променливата която изпълнява анонимната функция
@@ -166,3 +166,37 @@ function addNineToArray(arrMa){
 //Input
 let justCheck = modifyAverage([1, 0 ,1]);
 console.log(justCheck.join(""));
+
+//5.	**DNA Helix
+// Write a JS program that prints a DNA helix with length, specified by the user. The helix has a repeating structure, but the symbol in the chain follows the sequence ATCGTTAGGG. See the examples for more information.
+// The input comes as a single number. It represents the length of the required helix.
+// The output is the completed structure, printed on the console.
+
+function printDNA(input){
+
+    let DnaContent = ['A', 'T', 'C', 'G', 'T', 'T', 'A', 'G', 'G', 'G'];
+    let dnaIndex = 0;
+    let template = ['**%DNA1%%DNA2%**\n', '*%DNA1%--%DNA2%*\n', '%DNA1%----%DNA2%\n', '*%DNA1%--%DNA2%*\n'];
+    let templateIndex = 0;
+    let result = '';
+
+    for (let index = 0; index < input; index++) {
+
+        if(templateIndex === 4){
+            templateIndex = 0
+        }
+
+        if(dnaIndex > 9){
+            dnaIndex = 0;
+        }
+
+        let line = (template[templateIndex].replace("%DNA1%", DnaContent[dnaIndex]).replace("%DNA2%", DnaContent[dnaIndex +1]));
+        templateIndex +=1;
+        dnaIndex +=2;
+
+        result += line;
+    }
+    return result;
+}
+
+console.log(printDNA(10));
