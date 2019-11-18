@@ -6,7 +6,52 @@
 // Връща елементи от масива sliсe( .. , ..) начален индекс и краен индекс // splice( .. , //)
 // indexOf() / includes()  / array.join('-') 
 
-//1. First and Last K Numbers
-function firstAndLastNumbers(arr1){
-  
+//1.Print an Array with a given Delimiter
+function printArrayByDelimiter(arr1){
+    let delemiter = arr1[arr1.length-1]
+    let sequnce = '';
+
+    for (let index = 0; index < arr1.length - 1; index++) {
+       sequnce += (arr1[index]) + delemiter;
+    }
+    
+    return sequnce.substring(0, sequnce.length - 1);
 }
+console.log(printArrayByDelimiter(['One', 'Two', 'Three', 'Four', 'Five', '-']));
+
+//2.Print every N-th Element from an Array 
+function printNthElement(arr2){
+    let steps = parseInt(arr2[arr2.length-1]);
+    let result = [];
+
+    for (let index = 0; index < arr2.length - 1; index++) {
+       if(index === 0 || index % steps === 0){
+        result.push(arr2[index]);
+       }
+      
+       if(steps >= arr2.length){
+           return result;
+       }
+    }
+    return result;
+}
+console.log(printNthElement(['2', '5', '31', '111', '44', '3']));
+
+//3. *MIX Elements from an Array
+function mixElementsFromArray(arr3){
+    let result = [];
+    for (let index = 0; index < arr3.length; index++) {
+
+        let currentIndex = index + 1;
+        switch(arr3[index]) {
+            case 'add':
+              result.push(currentIndex);
+              break;
+            case 'remove':
+              result.pop();
+              break;
+          }
+    }
+    return result;
+}
+console.log(mixElementsFromArray(['add', 'add', 'remove', 'add', 'add']));
