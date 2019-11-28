@@ -16,8 +16,9 @@
 //$('#id') // Selects a element by given ID
 //$('selector1, selector2') // Combined SELECTOR
 
-// e.preventDefault();  e.stopPropagation(); Премахванещелано поведение(events, function)
+// e.preventDefault();  e.stopPropagation(); - Koмбинация от команди при писането на
+//евент лисенери, за да сме сигурни че няма да ни се омаже кода
 
 //Adding and removing elements from DOM Tree
 // append()/prepend()   
-// 
+// Test Pull Request
