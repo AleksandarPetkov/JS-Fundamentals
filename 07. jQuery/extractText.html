@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous">
+        </script>     
+</head>
+
+<body>
+    <lu id="items">
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+    </lu>
+
+    <button onclick="extractText()">Extract Test</button>
+
+    <div id="result"></div>
+    
+    <script>
+        function extractText(){
+            const content =  $("li").toArray().map((el) => el.textContent)
+            .join(", ");
+            
+            $("#result").text(content);
+        }
+    </script>
+</body>
+
+
+
+</html>

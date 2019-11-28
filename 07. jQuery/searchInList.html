@@ -1,0 +1,42 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <ul id="towns">
+        <li>Sofia</li>
+        <li>Pleven</li>
+        <li>Varna</li>
+        <li>Plovdiv</li>
+    </ul>
+
+
+    <!-- without event lisener -->
+    <!-- <button onclick="search()">Search</button> -->
+
+    <input type="text" id="searchText" />
+ 
+    <button onclick="search()">Search</button>
+    <div id="result"></div>
+
+    <script>
+        //Add Event Lisener with '.on'
+        $("#searchText").on("keyup", search)
+
+        function search(){
+            const searchTerm = $("#searchText").val().toLowerCase();
+            $("#towns li")
+            .css("font-weight", "")
+            .filter(function (index, elem){
+                return elem.textContent.toLowerCase().indexOf(searchTerm) > -1;
+            })
+            .css("font-weight", "bold");
+        }
+    </script>
+</body>
+
+
+
+</html>
