@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+    <h1>Problem: Add Element to List</h1>
+    <hr>
+
+    <ul id="ulList">
+        <li>First <a href="#" class="deleteA">Delete</a></li>
+        <li>Second <a href="#" class="deleteA">Delete</a></li>
+    </ul>
+
+    <input id="itemName" type="text" />
+    <input id="addItem" type="button" value="Add" />
+
+    <script>
+        //Add event Listener -ADD
+        document.getElementById("addItem").addEventListener("click", addItem);
+
+        //Add event Listener to all elements -REMOVE
+        const deleteButtons = document.getElementsByClassName("deleteA");
+
+        for (let delButton of deleteButtons) {
+            delButton.addEventListener("click", removeItem)
+        }
+
+
+        function addItem() {
+            //Get the input
+            const itemNamee = document.getElementById("itemName").value;
+
+            //Create new <li> elemnt and add it content
+            const elem = document.createElement("li");
+            // elem.textContent = itemNamee + '<a href="#">Delete</a>';
+            elem.innerHTML = itemNamee + ' <a href="#" class="deleteA">Delete</a>';
+            //В случая childNodes на елемента <li>Second <a href="#" class="deleteA">Delete</a></li> са 2.
+            // Първия е Text -'Second' , Втория е  <a ../>
+            elem.childNodes[1].addEventListener("click", removeItem)
+
+            //Add new li to ul
+            document.getElementById("ulList").appendChild(elem);
+            //Clear input value
+            document.getElementById("itemName").value = "";
+        }
+
+        //Add Event Listener parameter
+        function removeItem(evt) {
+            //Event Listener have a 'target' that show us current clicked Element
+            //Need to use parentNode to delete <li>(child of ul). Without it I access <a> - (<li>Second <a href="#" class="deleteA">Delete</a></li>)
+            document.getElementById("ulList").removeChild(evt.target.parentNode);
+        }
+    </script>
+</body>
+
+</html>

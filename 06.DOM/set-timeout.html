@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="loading" class="hidden">LOADING</h1>
+
+    <script>
+        let counter = 0;
+
+        document.getElementById("loading").style.display = "block";
+
+        setTimeout(() => {
+            for (let i = 0; i < 1000; i++) {
+                for (let k = 0; k < 7000; k++) {
+                    for (let j = 0; j < 300; j++) {
+                        counter += 1;
+                    }
+                }
+            }
+
+            alert(counter);
+        }, 10);
+
+    </script>
+</body>
+
+</html>
