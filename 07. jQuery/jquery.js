@@ -1,7 +1,7 @@
 // Overview: jquery is library used more that 75% of all sites. Its good for all browsers
 // Simplifield AJAX calls and working with RESTful services
 // Add Jquery : <script src="jquery-3.4.1.min.js"></script>
-// JQuery SELECTORS
+//             JQuery SELECTORS
 //jQuery selectors return a collection matched items
 //$('div') // document.getElementsByTagName('div');
 //$('.menu-item') // document.getElementsByClassName('.menu-item');
@@ -21,4 +21,3 @@
 
 //Adding and removing elements from DOM Tree
 // append()/prepend()   
-// Test Pull Request
